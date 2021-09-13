@@ -36,7 +36,7 @@ function btnNumber(nmb)
         {
             
         }
-        else if(res.textContent==0)
+        else if(res.textContent=="0")
         {
             res.textContent=nmb;
             final+=nmb;
@@ -85,6 +85,7 @@ function opaCal(opu)
     {
         res.textContent+=opu;
         final+=` ${opu} `;
+        brd=0;
     }
 }
 bp.addEventListener("click",function(){opaCal('+')});
@@ -92,15 +93,17 @@ bx.addEventListener("click",function(){opaCal('*')});
 bprc.addEventListener("click",function(){opaCal('%')});
 bdev.addEventListener("click",function(){opaCal('/')});
 bm.addEventListener("click",function(){opaCal('-')});
+let brd=0;
 bd.addEventListener("click",function(){
     if(res.textContent.length==18)
     {
         res.textContent="";
     }
-    if(res.textContent.charAt(res.textContent.length-1)!=="+" && res.textContent.charAt(res.textContent.length-1)!=="-" && res.textContent.charAt(res.textContent.length-1)!=="%" && res.textContent.charAt(res.textContent.length-1)!=="=" && res.textContent.charAt(res.textContent.length-1)!=="/" && res.textContent.charAt(res.textContent.length-1)!=="*" && res.textContent.charAt(res.textContent.length-1)!==".")
+    if(res.textContent.charAt(res.textContent.length-1)!=="+" && res.textContent.charAt(res.textContent.length-1)!=="-" && res.textContent.charAt(res.textContent.length-1)!=="%" && res.textContent.charAt(res.textContent.length-1)!=="=" && res.textContent.charAt(res.textContent.length-1)!=="/" && res.textContent.charAt(res.textContent.length-1)!=="*" && res.textContent.charAt(res.textContent.length-1)!=="." && brd==0)
     {
         res.textContent+=".";
         final+=".";
+        brd=1;
     }
     
 });
