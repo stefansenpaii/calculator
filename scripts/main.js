@@ -21,6 +21,7 @@ const bd=document.querySelector("#bd");
 const finalr=document.querySelector("#finalr")
 const res=document.querySelector("#res");
 let final="";
+
 function btnNumber(nmb)
 {
     if(res.textContent.charAt(res.textContent.length-1)!=="=")
@@ -42,8 +43,9 @@ function btnNumber(nmb)
             final+=nmb;
         }
         else{
-        res.textContent+=nmb;
-        final+=nmb;
+            res.textContent+=nmb;
+            final+=nmb;
+            
         }
     }
 }
@@ -59,15 +61,23 @@ b9.addEventListener("click",function() {btnNumber("9");});
 b0.addEventListener("click",function() {
     if(res.textContent.charAt(res.textContent.length-1)!=="=")
     {
-        if(res.textContent.length==18)
+        if(res.textContent.length>=18)
         {
-            res.textContent="";
+            res.style.fontSize="15px";
         }
-        if(res.textContent=="0")
+        else{
+            res.style.fontSize="30px";
+        }
+        if(res.textContent.length==36)
+        {
+            
+        }
+        else if(res.textContent=="0")
         {
             let l=1;
         }
-        else{
+        else
+        {
         res.textContent+="0";
         final+="0";
         }
@@ -77,11 +87,18 @@ b0.addEventListener("click",function() {
 
 function opaCal(opu)
 {
-    if(res.textContent.length==18)
-    {
-        res.textContent="";
-    }
-    if(res.textContent.charAt(res.textContent.length-1)!=="+" && res.textContent.charAt(res.textContent.length-1)!=="-" && res.textContent.charAt(res.textContent.length-1)!=="%" && res.textContent.charAt(res.textContent.length-1)!=="=" && res.textContent.charAt(res.textContent.length-1)!=="/" && res.textContent.charAt(res.textContent.length-1)!=="*" && res.textContent.charAt(res.textContent.length-1)!==".")
+    if(res.textContent.length>=18)
+        {
+            res.style.fontSize="15px";
+        }
+        else{
+            res.style.fontSize="30px";
+        }
+        if(res.textContent.length==36)
+        {
+            
+        }
+    else if(res.textContent.charAt(res.textContent.length-1)!=="+" && res.textContent.charAt(res.textContent.length-1)!=="-" && res.textContent.charAt(res.textContent.length-1)!=="%" && res.textContent.charAt(res.textContent.length-1)!=="=" && res.textContent.charAt(res.textContent.length-1)!=="/" && res.textContent.charAt(res.textContent.length-1)!=="*" && res.textContent.charAt(res.textContent.length-1)!==".")
     {
         res.textContent+=opu;
         final+=` ${opu} `;
@@ -95,11 +112,18 @@ bdev.addEventListener("click",function(){opaCal('/')});
 bm.addEventListener("click",function(){opaCal('-')});
 let brd=0;
 bd.addEventListener("click",function(){
-    if(res.textContent.length==18)
+    if(res.textContent.length>=18)
+        {
+            res.style.fontSize="15px";
+        }
+        else{
+            res.style.fontSize="30px";
+        }
+    if(res.textContent.length==36)
     {
-        res.textContent="";
-    }
-    if(res.textContent.charAt(res.textContent.length-1)!=="+" && res.textContent.charAt(res.textContent.length-1)!=="-" && res.textContent.charAt(res.textContent.length-1)!=="%" && res.textContent.charAt(res.textContent.length-1)!=="=" && res.textContent.charAt(res.textContent.length-1)!=="/" && res.textContent.charAt(res.textContent.length-1)!=="*" && res.textContent.charAt(res.textContent.length-1)!=="." && brd==0)
+            
+    }    
+    else if(res.textContent.charAt(res.textContent.length-1)!=="+" && res.textContent.charAt(res.textContent.length-1)!=="-" && res.textContent.charAt(res.textContent.length-1)!=="%" && res.textContent.charAt(res.textContent.length-1)!=="=" && res.textContent.charAt(res.textContent.length-1)!=="/" && res.textContent.charAt(res.textContent.length-1)!=="*" && res.textContent.charAt(res.textContent.length-1)!=="." && brd==0)
     {
         res.textContent+=".";
         final+=".";
@@ -144,6 +168,12 @@ c.addEventListener("click",function(){
             final=final.slice(0,-3);
             res.textContent=res.textContent.slice(0,-1);
         }
+        else if(res.textContent.charAt(res.textContent.length-1)==".")
+        {
+            final=final.slice(0,-1);
+            res.textContent=res.textContent.slice(0,-1);
+            brd=0;
+        }
         else{
             final=final.slice(0,-1);
             res.textContent=res.textContent.slice(0,-1);
@@ -172,7 +202,18 @@ function makeResult(num1,op,num2)
     if (op === '%') return num1 % num2;
 }
 be.addEventListener("click",function(){
-    if(res.textContent.charAt(res.textContent.length-1)!=="+" && res.textContent.charAt(res.textContent.length-1)!=="-" && res.textContent.charAt(res.textContent.length-1)!=="%" && res.textContent.charAt(res.textContent.length-1)!=="=" && res.textContent.charAt(res.textContent.length-1)!=="/" && res.textContent.charAt(res.textContent.length-1)!=="*" && res.textContent.charAt(res.textContent.length-1)!==".")
+    if(res.textContent.length>=18)
+        {
+            res.style.fontSize="15px";
+        }
+        else{
+            res.style.fontSize="30px";
+        }
+    if(res.textContent.length==36)
+    {
+            
+    }
+    else if(res.textContent.charAt(res.textContent.length-1)!=="+" && res.textContent.charAt(res.textContent.length-1)!=="-" && res.textContent.charAt(res.textContent.length-1)!=="%" && res.textContent.charAt(res.textContent.length-1)!=="=" && res.textContent.charAt(res.textContent.length-1)!=="/" && res.textContent.charAt(res.textContent.length-1)!=="*" && res.textContent.charAt(res.textContent.length-1)!==".")
     {
         let numb=final.split(" ");
     const operations =['%','*','/','-','+'];
